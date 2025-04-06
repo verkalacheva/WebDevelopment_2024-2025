@@ -1,0 +1,33 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #f5f5f5;
+  }
+
+#videoContainer {
+  position: absolute;
+      top: 70px;
+      left: 80px;
+      z-index: 10;
+      display: none;
+      background-color: white;
+      padding: 10px;
+      border-radius: 8px
+}
+
+.star {
+  position: fixed;
+  top: -30px;
+  font-size: 24px;
+  animation: fall linear;
+  z-index: 9999;
+  pointer-events: none;
+  color: gold;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
