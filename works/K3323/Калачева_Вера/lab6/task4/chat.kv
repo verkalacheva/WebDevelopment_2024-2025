@@ -1,0 +1,68 @@
+#:kivy 2.3.0
+
+<MessageBubble@BoxLayout>:
+    size_hint_y: None
+    height: 50
+    padding: 10
+    canvas.before:
+        Color:
+            rgba: 0.2, 0.2, 0.2, 0.8
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [15]
+
+    Label:
+        id: msg_label
+        text: ''
+        markup: True
+        color: 1, 1, 1, 1
+        halign: 'left'
+        valign: 'middle'
+        text_size: self.size
+        padding: 10, 10
+
+<ChatClient>:
+    orientation: 'vertical'
+
+    canvas.before:
+        Rectangle:
+            source: 'background.jpg'
+            pos: self.pos
+            size: self.size
+
+    # Панель сообщений
+    ScrollView:
+        id: messages_panel
+        size_hint_y: 0.85
+        do_scroll_x: False
+        do_scroll_y: True
+
+        GridLayout:
+            id: messages_container
+            cols: 1
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 5
+            padding: 5
+
+    # Нижняя панель ввода сообщения
+    BoxLayout:
+        size_hint_y: None
+        height: 50
+
+        TextInput:
+            id: input_field
+            multiline: False
+            size_hint_x: 0.8
+            background_color: 0.2, 0.2, 0.2, 1
+            foreground_color: 1, 1, 1, 1
+            padding: 10
+
+        Button:
+            text: 'Отправить'
+            size_hint_x: 0.2
+            background_normal: ''
+            background_color: 0.2, 0.6, 0.2, 1
+            color: 1, 1, 1, 1
+            on_press: root.send_message(self)
