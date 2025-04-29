@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Обратная связь{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto bg-grey p-8 rounded shadow card fade-in">
+    <h2 class="text-3xl font-bold mb-6 text-white">Свяжитесь с нами</h2>
+
+    <form method="post" class="space-y-4">
+        {% csrf_token %}
+
+        <!-- Поле для имени -->
+        <div class="form-field">
+            <label for="{{ form.name.id_for_label }}" class="text-white">{{ form.name.label }}</label>
+            {{ form.name }}
+        </div>
+
+        <!-- Поле для email -->
+        <div class="form-field">
+            <label for="{{ form.email.id_for_label }}" class="text-white">{{ form.email.label }}</label>
+            {{ form.email }}
+        </div>
+
+        <!-- Поле для сообщения -->
+        <div class="form-field">
+            <label for="{{ form.message.id_for_label }}" class="text-white">{{ form.message.label }}</label>
+            {{ form.message }}
+        </div>
+
+        <button type="submit" class="bg-burgundy hover:bg-burgundy-dark text-white font-bold py-2 px-4 rounded button-hover">
+            Отправить
+        </button>
+    </form>
+
+    {% if success %}
+    <p class="text-green-600 mt-4 font-semibold fade-in">Спасибо за ваше сообщение!</p>
+    {% endif %}
+</div>
+{% endblock %}

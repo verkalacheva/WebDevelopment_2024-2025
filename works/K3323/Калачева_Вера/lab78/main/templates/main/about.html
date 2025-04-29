@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+
+{% block title %}О разработке{% endblock %}
+
+{% block content %}
+<section class="fade-in">
+    <h1 class="hero-title">О разработке</h1>
+
+    <div class="card max-w-3xl mx-auto">
+        <h2 class="text-2xl font-bold mt-6 mb-4 text-white">Использованные инструменты:</h2>
+        <ul class="list-disc list-inside space-y-2 text-gray-300">
+            <li><span class="font-semibold">Django</span> — основа серверной части сайта (backend + шаблоны)</li>
+            <li><span class="font-semibold">HTML5 & CSS3</span> — вёрстка и стилизация страниц</li>
+            <li><span class="font-semibold">TailwindCSS</span> — библиотека для быстрой адаптивной стилизации</li>
+            <li><span class="font-semibold">Python</span> — язык программирования для логики сайта</li>
+            <li><span class="font-semibold">SQLite</span> — встроенная база данных для хранения информации</li>
+        </ul>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<section class="fade-in">
+    <h1 class="hero-title">Добро пожаловать на главную страницу!</h1>
+
+    <p class="text-center text-lg text-gray-300 mt-6">
+        На нашем сайте вы найдете информацию о проекте, а также сможете оставить нам сообщение.
+    </p>
+
+    <div class="text-center mt-6">
+        <a href="{% url 'contact' %}" class="bg-burgundy hover:bg-burgundy-dark text-white py-2 px-6 rounded button-hover">Связаться с нами</a>
+    </div>
+</section>
+{% endblock %}

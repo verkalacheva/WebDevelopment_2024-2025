@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Lab 7-8{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'main/style.css' %}">
+</head>
+<body class="flex flex-col min-h-screen text-gray-800 bg-cover bg-center" style="background-image: url('{% static 'main/background.jpg' %}');">
+
+    <div class="background-overlay"></div>
+
+    <header class="header fade-in relative z-10">
+        <div class="navbar">
+            <div class="logo text-white font-bold text-xl">Lab 7-8</div>
+            <nav>
+                <a href="{% url 'home' %}" class="text-white hover:text-gray-300 transition duration-300">Главная</a>
+                <a href="{% url 'about' %}" class="text-white hover:text-gray-300 transition duration-300">О разработке</a>
+                <a href="{% url 'contact' %}" class="text-white hover:text-gray-300 transition duration-300">Обратная связь</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto p-6 relative z-10">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="bg-burgundy text-white text-center p-4 mt-6 relative z-10">
+        <p>© Lab 7-8. Django project</p>
+    </footer>
+
+</body>
+</html>
